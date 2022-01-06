@@ -2,12 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .w-500 {
+    width: 500px;
+  }
+
+  .plpr-10per {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .max-h-500 {
+    max-height: 500px;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap");
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {

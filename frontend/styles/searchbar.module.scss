@@ -1,0 +1,42 @@
+.searchbar {
+  background: url("../public/search-icon.png") no-repeat left;
+  background-position-x: 15px;
+  background-size: 20px;
+  z-index: 100;
+}
+
+.searching_animation {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid royalblue;
+  border-bottom: 2px solid transparent;
+  animation: searching 0.4s infinite;
+
+  @keyframes searching {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.autocomplete_item_list {
+  font-weight: bold;
+  border: 2px solid rgb(224, 223, 223);
+  border-radius: 5px 5px 0 0;
+  margin-top: 5px;
+
+  li {
+    padding: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+
+    &:hover {
+      color: white;
+      background-color: royalblue;
+    }
+  }
+}

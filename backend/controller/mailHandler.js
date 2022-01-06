@@ -10,12 +10,13 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendMail = (req, res) => {
-  const { recieverEmail } = req.body;
+  const { to } = req.query;
+
   const mailOptions = {
     from: process.env.EMAIL,
-    to: recieverEmail,
+    to: to,
     subject: "Hello From Rohit Dhas!",
-    html: "<h2>Thanks for Booking Movies✅</h2>",
+    html: "<h2>Thanks for Rating 👍🏻</h2>",
   };
 
   transporter.sendMail(mailOptions, (error, info) => {

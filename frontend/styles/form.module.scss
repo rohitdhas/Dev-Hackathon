@@ -1,0 +1,35 @@
+.activeOverlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(29, 29, 29, 0.384);
+  pointer-events: all;
+  transition: all 0.4s;
+}
+
+.overlay {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.activeForm {
+  position: absolute;
+  top: 25%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.3s;
+}
+
+.form {
+  position: absolute;
+  transform: translateY(-200px);
+  opacity: 0;
+  transition: all 0.3s;
+}

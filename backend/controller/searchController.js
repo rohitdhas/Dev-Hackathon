@@ -4,21 +4,22 @@ const search = async (req, res) => {
   const { id } = req.params;
   try {
     const result = await Movie.findById(id);
-    res.json({ data: result });
+    res.status(200).json({ data: result, success: true });
   } catch (err) {
     console.log(err);
-    res.status(500).send({ message: err });
+    res.status(500).json({ success: false });
   }
 };
 
 const searchAutoComplete = async (req, res) => {
+  const { term, limit } = req.query;
   try {
     const results = await Movie.aggregate([
       {
         $search: {
           index: "movies",
           autocomplete: {
-            query: `${req.query.term}`,
+            query: `${term}`,
             path: "title",
             fuzzy: {
               maxEdits: 1,
@@ -27,18 +28,15 @@ const searchAutoComplete = async (req, res) => {
         },
       },
       {
-        $limit: 20,
+        $limit: limit ? Number(req.query.limit) : 10,
       },
       {
         $project: {
           _id: 1,
           title: 1,
           plot: 1,
-          fullplot: 1,
           poster: 1,
-          genres: 1,
           year: 1,
-          type: 1,
           imdb: 1,
         },
       },
@@ -52,7 +50,7 @@ const searchAutoComplete = async (req, res) => {
 
 const getRandom = async (req, res) => {
   try {
-    const random = await Movie.aggregate([{ $sample: { size: 10 } }]);
+    const random = await Movie.aggregate([{ $sample: { size: 50 } }]);
     res.status(200).json({ data: random });
   } catch (err) {
     console.log(err);

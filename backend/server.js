@@ -2,9 +2,10 @@ require("dotenv").config();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const express = require("express");
-const app = express();
-const { sendMail } = require("./controller/mailHandler");
 const searchRoutes = require("./routes/searchRoutes");
+const ratingRoutes = require("./routes/ratingRoutes");
+const mailRoutes = require("./routes/mailerRoutes");
+const app = express();
 // ----------------------
 
 // DB & SERVER CONNECTION
@@ -20,10 +21,12 @@ mongoose
   .catch((err) => console.log(err));
 
 // MIDDLEWARES
+app.use(express.json());
 app.use(cors({ origin: "*" }));
 // ----------------------
 
 // ROUTES
 app.use(searchRoutes);
-app.get("/mail", sendMail);
+app.use(ratingRoutes);
+app.use(mailRoutes);
 // ----------------------
