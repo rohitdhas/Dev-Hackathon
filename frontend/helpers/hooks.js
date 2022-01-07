@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BASE_SERVER_URL } from "../constants/urls";
 
 export function useAutocomplete(userInput) {
   const [data, setData] = useState([]);
@@ -16,7 +17,7 @@ export function useAutocomplete(userInput) {
 
     setIsLoading(true);
     const res = await fetch(
-      `http://localhost:7000/autocomplete?term=${userInput}&limit=10`
+      `${BASE_SERVER_URL}/autocomplete?term=${userInput}&limit=10`
     );
     const { data } = await res.json();
     setIsLoading(false);

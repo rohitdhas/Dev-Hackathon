@@ -9,18 +9,20 @@ const Navbar: React.FC = () => {
   return (
     <nav className="md:px-20 shadow-lg flex align-middle justify-between bg-green-400 absolute top-0 left-0 right-0 p-1">
       <span className="my-auto text-xl hover:text-slate-200 cursor-pointer font-bold text-white">
-        {router.pathname === "/" ? (
-          <Link href="/">
-            <a>
+        <Link href="/">
+          <a>
+            {router.pathname === "/" ? (
               <h1>Home</h1>
-            </a>
-          </Link>
-        ) : (
-          <span onClick={() => router.back()} className="flex align-middle">
-            <span className="material-icons mr-1 my-auto">chevron_left</span> Go
-            Back
-          </span>
-        )}
+            ) : (
+              <h1 className="flex align-middle">
+                <span className="material-icons mr-1 my-auto">
+                  chevron_left
+                </span>{" "}
+                Back Home
+              </h1>
+            )}
+          </a>
+        </Link>
       </span>
       <main className="flex flex-col">
         <Searchbar />

@@ -1,3 +1,4 @@
+import { BASE_SERVER_URL } from "../../constants/urls";
 import { Movie } from "../../components/searchBar";
 import MovieCard from "../../components/movieCard";
 import { useRouter } from "next/router";
@@ -11,7 +12,7 @@ interface SearchPageProps {
 export async function getServerSideProps(context: any) {
   const { term } = context.params;
   const res = await fetch(
-    `http://localhost:7000/autocomplete?term=${term}&limit=50`
+    `${BASE_SERVER_URL}/autocomplete?term=${term}&limit=50`
   );
   const { data } = await res.json();
   return {

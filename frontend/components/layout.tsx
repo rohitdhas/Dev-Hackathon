@@ -4,6 +4,7 @@ import Navbar from "./navbar";
 import Head from "next/head";
 import Preloader from "./preloader";
 import { useState, useEffect } from "react";
+import { BASE_SERVER_URL } from "../constants/urls";
 
 const Layout: NextPage = ({ children }) => {
   const [isConnected, setIsConnected] = useState<boolean>(false);
@@ -13,7 +14,7 @@ const Layout: NextPage = ({ children }) => {
   }, []);
 
   async function checkServerConnection() {
-    const res = await fetch("http://localhost:7000");
+    const res = await fetch(BASE_SERVER_URL);
     const { success } = await res.json();
     if (success) setIsConnected(true);
     else setIsConnected(false);
@@ -29,7 +30,7 @@ const Layout: NextPage = ({ children }) => {
       </Head>
       <Navbar />
       <main className="pt-20">{children}</main>
-      <Preloader isActive={!isConnected} />
+      <Preloader isActive={!isConnected} message="Loading..." />
     </div>
   );
 };

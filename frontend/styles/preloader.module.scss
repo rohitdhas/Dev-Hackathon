@@ -15,3 +15,21 @@
     }
   }
 }
+
+.loading_animation_btn {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid white;
+  border-bottom: 5px solid transparent;
+  animation: searching 0.6s infinite;
+
+  @keyframes searching {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

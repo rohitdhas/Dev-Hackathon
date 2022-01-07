@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/searchbar.module.scss";
 import { useAutocomplete } from "../helpers/hooks";
 import { useRouter } from "next/router";
-
+import Preloader from "./preloader";
 export interface imdb {
   rating: number;
   votes: number;
@@ -20,20 +20,28 @@ export interface Movie {
 
 export default function Searchbar() {
   const [input, setInput] = useState("");
+  const [isFetching, setIsFetching] = useState(false);
   const { data, isLoading } = useAutocomplete(input);
   const router = useRouter();
+  const { id, term } = router.query;
 
   function search(e: any) {
     e.preventDefault();
     if (!input) return;
+    setIsFetching(true);
     router.push({ pathname: `/search/${input}` });
     setInput("");
   }
 
   function openDetailsPage(movieId: string) {
+    setIsFetching(true);
     router.push({ pathname: `/details/${movieId}` });
     setInput("");
   }
+
+  useEffect(() => {
+    setIsFetching(false);
+  }, [term, id]);
 
   return (
     <div className="mx-auto relative">
@@ -86,6 +94,7 @@ export default function Searchbar() {
       ) : (
         <></>
       )}
+      <Preloader isActive={isFetching} message="Fetching Data..." />
     </div>
   );
 }

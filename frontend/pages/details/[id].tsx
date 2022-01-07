@@ -1,4 +1,5 @@
 import not_found_img from "../../public/notfound_placeholder.png";
+import { BASE_SERVER_URL } from "../../constants/urls";
 import CategoryCard from "../../components/categoryCard";
 import { imdb } from "../../components/searchBar";
 import RatingsForm from "../../components/form";
@@ -29,7 +30,7 @@ interface DetailsPageProps {
 
 export async function getServerSideProps(context: any) {
   const { id } = context.params;
-  const res = await fetch(`http://localhost:7000/search/${id}`);
+  const res = await fetch(`${BASE_SERVER_URL}/search/${id}`);
   const { data, success } = await res.json();
 
   return {
@@ -58,10 +59,11 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ data }) => {
             <title>{title}</title>
           </Head>
           <main className="flex flex-col md:flex-row">
-            <div className="img md:w-2/6">
+            <div className="img md:w-2/6 pointer-events-none">
               <Image
                 src={poster ? poster : not_found_img}
                 alt="poster"
+                className="-z-10"
                 width={400}
                 height={550}
               />
@@ -93,8 +95,8 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ data }) => {
                         className="text-green-400 mr-3 underline font-bold hover:text-green-500"
                         key={`${item}_${idx}_${Date.now()}`}
                       >
-                        <Link href={`/byactor/${item}`}>
-                          <a>{item}</a>
+                        <Link href={`https://www.google.com/search?q=${item}`}>
+                          <a target="_blank">{item}</a>
                         </Link>
                       </div>
                     );

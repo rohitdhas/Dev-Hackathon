@@ -1,6 +1,7 @@
 import styles from "../styles/form.module.scss";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { BASE_SERVER_URL } from "../constants/urls";
 
 interface Form {
   active: boolean;
@@ -14,6 +15,7 @@ const RatingsForm: React.FC<Form> = ({ active, closeForm }) => {
   }
   const [ratings, setRatings] = useState<number>(0);
   const [email, setEmail] = useState<string>("");
+  const [isBtnClicked, setIsBtnClicked] = useState<boolean>(false);
   const router = useRouter();
   const { id } = router.query;
 
@@ -26,8 +28,9 @@ const RatingsForm: React.FC<Form> = ({ active, closeForm }) => {
   function submitRatings(event: any) {
     event.preventDefault();
     if (!ratings) return;
+    setIsBtnClicked(true);
 
-    fetch("http://localhost:7000/ratings", {
+    fetch(`${BASE_SERVER_URL}/ratings`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ movieId: id, email, ratings }),
@@ -35,6 +38,7 @@ const RatingsForm: React.FC<Form> = ({ active, closeForm }) => {
       .then((res) => res.json())
       .then(({ success }) => {
         if (success) {
+          setIsBtnClicked(false);
           saveInLocalStorage(id);
           closeForm();
         }
@@ -116,8 +120,19 @@ const RatingsForm: React.FC<Form> = ({ active, closeForm }) => {
             type="submit"
             className={`flex align-middle justify-center bg-green-400 my-2 p-2 rounded-md text-white font-bold hover:bg-green-500`}
           >
-            Submit Ratings{" "}
-            <span className="material-icons ml-2">check_circle</span>
+            {isBtnClicked ? (
+              <>
+                Almost done
+                <span
+                  className={`${styles.loading_animation_btn} ml-2 my-auto`}
+                ></span>
+              </>
+            ) : (
+              <>
+                Submit Ratings
+                <span className="material-icons ml-2">check_circle</span>
+              </>
+            )}
           </button>
           <p className="text-center">
             <span className="text-xs font-bold text-gray-600">
