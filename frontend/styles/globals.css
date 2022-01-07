@@ -15,6 +15,10 @@
   .max-h-500 {
     max-height: 500px;
   }
+  .xy-45per {
+    top: 45%;
+    left: 45%;
+  }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap");

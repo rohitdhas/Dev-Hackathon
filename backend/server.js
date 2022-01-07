@@ -26,6 +26,10 @@ app.use(cors({ origin: "*" }));
 // ----------------------
 
 // ROUTES
+app.get("/", (req, res) => {
+  res.status(200).json({ success: true });
+});
+
 app.use(searchRoutes);
 app.use(ratingRoutes);
 app.use(mailRoutes);

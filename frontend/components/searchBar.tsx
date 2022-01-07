@@ -56,7 +56,6 @@ export default function Searchbar() {
           </span>
         ) : input && isLoading ? (
           <span
-            onClick={() => setInput("")}
             className={`${styles.searching_animation} text-blue-600 absolute right-0 top-3.5 mr-3 top-25`}
           ></span>
         ) : null}

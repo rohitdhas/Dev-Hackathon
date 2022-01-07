@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import NotFound from "../../components/404";
 
 interface MovieDetails {
   _id: string;
@@ -133,7 +134,7 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ data }) => {
           />
         </div>
       ) : (
-        <div className="not_fount text-2xl font-bold">404 Not Found!</div>
+        <NotFound />
       )}
     </>
   );
