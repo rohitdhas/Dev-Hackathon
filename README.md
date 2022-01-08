@@ -1,7 +1,7 @@
 <p align="center">
    <br/>
-   <a href="https://mongo-movie-search.vercel.app/" target="_blank"><img width="150px" src="./frontend/public/logo.png" /></a>
-   <h3 align="center">Mongo Movie Search</h3>
+   <a href="https://movieflixer.vercel.app/" target="_blank"><img width="150px" src="./frontend/public/logo.png" /></a>
+   <h3 align="center">Movie Flixer</h3>
    <p align="center">Search 🔍 and Rate ⭐ your Favorite Movies and shows!</p>
 </p>
 
