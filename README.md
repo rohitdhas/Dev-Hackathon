@@ -1,6 +1,6 @@
 <p align="center">
    <br/>
-   <a href="https://mongo-movie-search.vercel.app/" target="_blank"><img width="150px" src="https://cdn-icons.flaticon.com/png/512/5450/premium/5450964.png?token=exp=1641624758~hmac=e40509c277beb738fb75f7dd7a86d06b" /></a>
+   <a href="https://mongo-movie-search.vercel.app/" target="_blank"><img width="150px" src="./frontend/public/logo.png" /></a>
    <h3 align="center">Mongo Movie Search</h3>
    <p align="center">Search and Rate your Favorite Movies and shows!</p>
 </p>
