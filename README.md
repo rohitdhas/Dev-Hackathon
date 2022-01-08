@@ -2,7 +2,7 @@
    <br/>
    <a href="https://mongo-movie-search.vercel.app/" target="_blank"><img width="150px" src="./frontend/public/logo.png" /></a>
    <h3 align="center">Mongo Movie Search</h3>
-   <p align="center">Search and Rate your Favorite Movies and shows!</p>
+   <p align="center">Search 🔍 and Rate ⭐ your Favorite Movies and shows!</p>
 </p>
 
 <div align="center">
@@ -38,7 +38,7 @@ npm install
 
 ### NOTE
 
-You'll need a .env file in the `backend` directory.
+You'll need a `.env` file in the `backend` directory.
 
 It looks like this -
 
