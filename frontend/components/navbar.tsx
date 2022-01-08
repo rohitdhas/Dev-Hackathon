@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
         <Link href="/">
           <a>
             {router.pathname === "/" ? (
-              <h1>Home</h1>
+              <h1>MovieFlixer</h1>
             ) : (
               <h1 className="flex align-middle">
                 <span className="material-icons mr-1 my-auto">
