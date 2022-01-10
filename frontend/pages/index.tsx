@@ -14,49 +14,55 @@ const Home: NextPage = () => {
       <Head>
         <title>Home</title>
       </Head>
-      <main className="flex flex-col">
-        <div className="mt-10 flex-col justify-center align-center">
-          <div className="img pointer-events-none w-fit mx-auto">
-            <Image
-              height={200}
-              className="-z-10"
-              src={illustration}
-              alt="movie"
-            />
-          </div>
-          <div className="flex flex-col justify-center align-middle">
-            <h1 className="md:text-3xl lg:text-4xl font-black mt-10 text-center">
-              Search for your favorite movies and shows....
-            </h1>
-            <div className="btn h-min w-fit mx-auto">
-              <Link href="/random">
-                <a>
-                  <button
-                    onClick={() => setIsBtnClicked(true)}
-                    className="flex justify-center align-middle bg-blue-500 text-white font-bold hover:bg-blue-600 cursor-pointer mx-auto p-5 w-72 mt-10 rounded-md"
-                  >
-                    {isBtnClicked ? (
-                      <>
-                        <p>Fetching Results</p>
-                        <span
-                          className={`${styles.loading_animation_btn} ml-2 my-auto`}
-                        ></span>
-                      </>
-                    ) : (
-                      <>
-                        <p>Start Exploring</p>
-                        <span className="material-icons ml-2">play_arrow</span>
-                      </>
-                    )}
-                  </button>
-                </a>
-              </Link>
-            </div>
+      <div className="my-auto h-75vh flex flex-col justify-center align-center">
+        <div className="img pointer-events-none w-fit mx-auto">
+          <Image
+            height={200}
+            className="-z-10"
+            src={illustration}
+            alt="movie"
+          />
+        </div>
+        <div className="flex flex-col justify-center align-middle">
+          <h1 className="md:text-3xl lg:text-4xl font-black mt-10 text-center">
+            Search for your favorite{" "}
+            <span className="text-blue-500 hover:bg-blue-500 hover:text-white transition-all">
+              movies
+            </span>{" "}
+            and{" "}
+            <span className="text-blue-500 hover:bg-blue-500 hover:text-white transition-all">
+              shows
+            </span>
+            ....
+          </h1>
+          <div className="btn h-min w-fit mx-auto">
+            <Link href="/random">
+              <a>
+                <button
+                  onClick={() => setIsBtnClicked(true)}
+                  className="flex justify-center align-middle bg-blue-500 text-white font-bold hover:bg-blue-600 cursor-pointer mx-auto p-5 w-72 mt-10 rounded-md"
+                >
+                  {isBtnClicked ? (
+                    <>
+                      <p>Fetching Results</p>
+                      <span
+                        className={`${styles.loading_animation_btn} ml-2 my-auto`}
+                      ></span>
+                    </>
+                  ) : (
+                    <>
+                      <p>Start Exploring</p>
+                      <span className="material-icons ml-2">play_arrow</span>
+                    </>
+                  )}
+                </button>
+              </a>
+            </Link>
           </div>
         </div>
-      </main>
+      </div>
       <footer className="text-white text-sm absolute bottom-0 right-0 left-0 text-center py-2 md:py-3 md:px-20 px-4 bg-gray-700">
-        <div>
+        <div className="font-semibold">
           👨‍💻 Built by{" "}
           <a
             href="https://www.linkedin.com/in/rohit-dhas-26b68215a/"
@@ -94,7 +100,7 @@ const Home: NextPage = () => {
             MongoDB
           </a>
         </div>
-        <div className="mt-1 text-xs text-slate-400">
+        <div className="mt-1 text-xs font-semibold text-slate-400">
           💪🏻 Powered by
           <a
             href="https://www.mongodb.com/atlas/database"

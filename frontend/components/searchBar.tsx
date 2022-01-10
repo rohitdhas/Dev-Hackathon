@@ -16,6 +16,7 @@ export interface Movie {
   poster: string;
   plot: string;
   imdb: imdb;
+  price: number;
 }
 
 export default function Searchbar() {

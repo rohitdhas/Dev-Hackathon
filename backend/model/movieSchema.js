@@ -11,6 +11,7 @@ const movieSchema = new Schema({
   type: String,
   imdb: Object,
   cast: Array,
+  price: Number,
 });
 
 const Movie = mongoose.model("Movie", movieSchema);

@@ -1,0 +1,15 @@
+.dropdown {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(-30px) scale(0.5);
+  pointer-events: none;
+  transition: all 0.2s;
+}
+
+.dropdownActive {
+  position: absolute;
+  opacity: 1;
+  transform: translateY(0px) scale(1);
+  pointer-events: all;
+  transition: all 0.2s;
+}

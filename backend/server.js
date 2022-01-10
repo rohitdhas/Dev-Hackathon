@@ -1,10 +1,12 @@
 require("dotenv").config();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const { v4: uuidv4 } = require("uuid");
 const express = require("express");
 const searchRoutes = require("./routes/searchRoutes");
 const ratingRoutes = require("./routes/ratingRoutes");
 const mailRoutes = require("./routes/mailerRoutes");
+const stripeRoutes = require("./routes/stripeRoutes");
 const app = express();
 // ----------------------
 
@@ -27,10 +29,11 @@ app.use(cors({ origin: "*" }));
 
 // ROUTES
 app.get("/", (req, res) => {
-  res.status(200).json({ success: true });
+  res.status(200).json({ success: true, uid: uuidv4() });
 });
 
 app.use(searchRoutes);
 app.use(ratingRoutes);
 app.use(mailRoutes);
+app.use(stripeRoutes);
 // ----------------------

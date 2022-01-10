@@ -4,16 +4,16 @@ const {
   search,
   searchAutoComplete,
   getRandom,
-  getFirstHundred,
-  getByActor,
-  getByCategory,
+  checkPayment,
+  getPaidMovies,
+  getFavorites,
 } = require("../controller/searchController");
 
 router.get("/search/:id", search);
 router.get("/random", getRandom);
-router.get("/getFirstHundred", getFirstHundred);
+router.get("/checkPayment", checkPayment);
 router.get("/autocomplete", searchAutoComplete);
-router.get("/category/:category", getByCategory);
-router.get("/actor/:actor", getByActor);
+router.get("/getPaidMovies", getPaidMovies);
+router.post("/favorites", getFavorites);
 
 module.exports = router;
