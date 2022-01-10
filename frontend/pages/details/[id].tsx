@@ -92,9 +92,9 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ data }) => {
   }
 
   return (
-    <>
+    <div className="my-auto h-75vh flex flex-col">
       {data._id ? (
-        <div className="flex justify-center align-middle">
+        <div className="flex my-auto justify-center align-middle">
           <Head>
             <title>{title}</title>
           </Head>
@@ -224,7 +224,7 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ data }) => {
       ) : (
         <NotFound />
       )}
-    </>
+    </div>
   );
 };
 
