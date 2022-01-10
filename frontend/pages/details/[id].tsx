@@ -212,6 +212,7 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ data }) => {
           </main>
           <RatingsForm
             active={ratingFormActive}
+            movieName={title}
             closeForm={() => setRatingFormActive(false)}
           />
           <PurchaseForm

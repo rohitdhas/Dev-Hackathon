@@ -5,6 +5,7 @@ const ratingSchema = new Schema({
   movieId: String,
   email: String,
   ratings: Number,
+  movieName: String,
 });
 
 const Rating = mongoose.model("Rating", ratingSchema);

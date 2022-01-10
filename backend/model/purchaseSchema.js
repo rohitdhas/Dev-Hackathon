@@ -7,6 +7,7 @@ const purchaseSchema = new Schema({
   paymentSuccess: Boolean,
   purchaseId: String,
   email: String,
+  movieName: String,
 });
 
 const Purchase = mongoose.model("Purchase", purchaseSchema);

@@ -6,9 +6,10 @@ import { BASE_SERVER_URL } from "../constants/urls";
 interface Form {
   active: boolean;
   closeForm: Function;
+  movieName: String;
 }
 
-const RatingsForm: React.FC<Form> = ({ active, closeForm }) => {
+const RatingsForm: React.FC<Form> = ({ active, closeForm, movieName }) => {
   let ratingsNums: Array<number> = [];
   for (let x = 1; x < 11; x++) {
     ratingsNums.push(x);
@@ -33,7 +34,7 @@ const RatingsForm: React.FC<Form> = ({ active, closeForm }) => {
     fetch(`${BASE_SERVER_URL}/ratings`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ movieId: id, email, ratings }),
+      body: JSON.stringify({ movieId: id, email, ratings, movieName }),
     })
       .then((res) => res.json())
       .then(({ success }) => {

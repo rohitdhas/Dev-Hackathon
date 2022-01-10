@@ -22,6 +22,7 @@ const createCheckout = async (req, res) => {
     });
     const purchase = await new Purchase({
       movieId,
+      movieName,
       uid,
       paymentSuccess: false,
       purchaseId: session.id,
